@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13865E1422406E520091A3A0 /* ContatosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13865E1322406E520091A3A0 /* ContatosModel.swift */; };
 		13C00A5B223C727C00338847 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C00A5A223C727C00338847 /* AppDelegate.swift */; };
 		13C00A60223C727C00338847 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13C00A5E223C727C00338847 /* Main.storyboard */; };
 		13C00A63223C727C00338847 /* AgendaCursoiOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 13C00A61223C727C00338847 /* AgendaCursoiOS.xcdatamodeld */; };
@@ -17,9 +18,11 @@
 		13C00A7A223C7DF100338847 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 13C00A79223C7DF100338847 /* user.png */; };
 		13C00A7C223C7E7B00338847 /* CadastroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C00A7B223C7E7B00338847 /* CadastroViewController.swift */; };
 		13C00A7E223C7FBF00338847 /* back.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 13C00A7D223C7FBF00338847 /* back.jpg */; };
+		4B861451E09911A69D9A2F1A /* Pods_AgendaCursoiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABC4F30E171D98FAD9348EE8 /* Pods_AgendaCursoiOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		13865E1322406E520091A3A0 /* ContatosModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContatosModel.swift; sourceTree = "<group>"; };
 		13C00A57223C727C00338847 /* AgendaCursoiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AgendaCursoiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13C00A5A223C727C00338847 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13C00A5F223C727C00338847 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -32,6 +35,9 @@
 		13C00A79223C7DF100338847 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
 		13C00A7B223C7E7B00338847 /* CadastroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroViewController.swift; sourceTree = "<group>"; };
 		13C00A7D223C7FBF00338847 /* back.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = back.jpg; sourceTree = "<group>"; };
+		A531870DA848B999F3A5A296 /* Pods-AgendaCursoiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AgendaCursoiOS.debug.xcconfig"; path = "Target Support Files/Pods-AgendaCursoiOS/Pods-AgendaCursoiOS.debug.xcconfig"; sourceTree = "<group>"; };
+		ABC4F30E171D98FAD9348EE8 /* Pods_AgendaCursoiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AgendaCursoiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2F772E7158A2BF23AAFBC5F /* Pods-AgendaCursoiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AgendaCursoiOS.release.xcconfig"; path = "Target Support Files/Pods-AgendaCursoiOS/Pods-AgendaCursoiOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B861451E09911A69D9A2F1A /* Pods_AgendaCursoiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +57,8 @@
 			children = (
 				13C00A59223C727C00338847 /* AgendaCursoiOS */,
 				13C00A58223C727C00338847 /* Products */,
+				1418F2802B46490AFDD44AAF /* Pods */,
+				EEDA25268BF1E2498CF7DDB3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -85,6 +94,7 @@
 		13C00A70223C748000338847 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				13865E1322406E520091A3A0 /* ContatosModel.swift */,
 				13C00A61223C727C00338847 /* AgendaCursoiOS.xcdatamodeld */,
 			);
 			path = model;
@@ -111,6 +121,23 @@
 			path = images;
 			sourceTree = "<group>";
 		};
+		1418F2802B46490AFDD44AAF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A531870DA848B999F3A5A296 /* Pods-AgendaCursoiOS.debug.xcconfig */,
+				C2F772E7158A2BF23AAFBC5F /* Pods-AgendaCursoiOS.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		EEDA25268BF1E2498CF7DDB3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ABC4F30E171D98FAD9348EE8 /* Pods_AgendaCursoiOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -118,9 +145,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13C00A6C223C727D00338847 /* Build configuration list for PBXNativeTarget "AgendaCursoiOS" */;
 			buildPhases = (
+				3584FBEE6C53ABAFF5E0BBBD /* [CP] Check Pods Manifest.lock */,
 				13C00A53223C727C00338847 /* Sources */,
 				13C00A54223C727C00338847 /* Frameworks */,
 				13C00A55223C727C00338847 /* Resources */,
+				94340EDB3864038B3718FD7B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -179,6 +208,53 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3584FBEE6C53ABAFF5E0BBBD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AgendaCursoiOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		94340EDB3864038B3718FD7B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AgendaCursoiOS/Pods-AgendaCursoiOS-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AgendaCursoiOS/Pods-AgendaCursoiOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		13C00A53223C727C00338847 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -186,6 +262,7 @@
 			files = (
 				13C00A75223C776C00338847 /* AgendaTableViewController.swift in Sources */,
 				13C00A77223C7CF800338847 /* RoundExtesion.swift in Sources */,
+				13865E1422406E520091A3A0 /* ContatosModel.swift in Sources */,
 				13C00A5B223C727C00338847 /* AppDelegate.swift in Sources */,
 				13C00A7C223C7E7B00338847 /* CadastroViewController.swift in Sources */,
 				13C00A63223C727C00338847 /* AgendaCursoiOS.xcdatamodeld in Sources */,
@@ -332,6 +409,7 @@
 		};
 		13C00A6D223C727D00338847 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A531870DA848B999F3A5A296 /* Pods-AgendaCursoiOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -349,6 +427,7 @@
 		};
 		13C00A6E223C727D00338847 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C2F772E7158A2BF23AAFBC5F /* Pods-AgendaCursoiOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

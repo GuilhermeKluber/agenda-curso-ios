@@ -11,7 +11,7 @@ import UIKit
 class AgendaTableViewController: UITableViewController {
 
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    var pessoas : [Pessoa] = []
+    var agenda : Contatos = Contatos()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +22,9 @@ class AgendaTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
+    override func viewWillAppear(_ animated: Bool) {
+        agenda.load()
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -32,18 +34,16 @@ class AgendaTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return agenda.contatos.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
-        // Configure the cell...
+        cell.textLabel?.text = agenda.contatos[indexPath.row].nome
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.

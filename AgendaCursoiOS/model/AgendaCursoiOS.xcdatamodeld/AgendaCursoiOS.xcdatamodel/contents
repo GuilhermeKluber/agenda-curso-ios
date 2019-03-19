@@ -14,14 +14,15 @@
         <relationship name="pessoa" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pessoa" inverseName="fones" inverseEntity="Pessoa" syncable="YES"/>
     </entity>
     <entity name="Pessoa" representedClassName="Pessoa" syncable="YES" codeGenerationType="class">
+        <attribute name="dataNascimento" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="nome" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sobrenome" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="endereco" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Enderecos" inverseName="pessoa" inverseEntity="Enderecos" syncable="YES"/>
         <relationship name="fones" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Fones" inverseName="pessoa" inverseEntity="Fones" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Pessoa" positionX="-45" positionY="0" width="128" height="105"/>
         <element name="Enderecos" positionX="-18" positionY="54" width="128" height="120"/>
         <element name="Fones" positionX="9" positionY="63" width="128" height="103"/>
+        <element name="Pessoa" positionX="-45" positionY="0" width="128" height="120"/>
     </elements>
 </model>
