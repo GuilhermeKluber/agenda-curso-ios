@@ -1,16 +1,21 @@
 PODS:
   - Eureka (4.3.1)
+  - SplitRow (1.3.0):
+    - Eureka (~> 4.3)
 
 DEPENDENCIES:
   - Eureka
+  - SplitRow
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Eureka
+    - SplitRow
 
 SPEC CHECKSUMS:
   Eureka: 28ea296f06710f6745266b71f17862048941a32d
+  SplitRow: fdd2551941aa0bf29f98e6b973c94a3b03ace038
 
-PODFILE CHECKSUM: 01046c9af873136c7ebb537a04dd83ed562fb478
+PODFILE CHECKSUM: 023e144f5511ef26e9747bbf1dcc13c35e3f6105
 
 COCOAPODS: 1.6.1

@@ -9,4 +9,9 @@ use_frameworks!
 
 pod 'Eureka'
 
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+pod 'SplitRow'
+
 end
