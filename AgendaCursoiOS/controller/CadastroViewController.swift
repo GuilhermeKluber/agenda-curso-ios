@@ -9,6 +9,7 @@
 import UIKit
 import Eureka
 import SplitRow
+import PhoneNumberKit
 
 class CadastroViewController: FormViewController {
     
@@ -54,7 +55,7 @@ class CadastroViewController: FormViewController {
                                     $0 <<< self.tipoNumero()
                     }
         
-                +++ Section("Endereços")
+                +++ Section("Endereço")
                 
                     <<< SplitRow<TextRow,TextRow>(){
                         $0.tag = "ruaNumero"
@@ -144,7 +145,7 @@ class CadastroViewController: FormViewController {
 
         func tipoNumero() -> SplitRow<PushRow<String>,PhoneRow> {
             let row = SplitRow<PushRow<String>,PhoneRow>(){
-                $0.rowLeftPercentage = 0.5
+                $0.rowLeftPercentage = 0.35
                 $0.rowLeft = PushRow<String>(){
                     $0.selectorTitle = "Tipo"
                     $0.value = "Celular"
@@ -156,32 +157,64 @@ class CadastroViewController: FormViewController {
                     $0.title = ""
                     $0.placeholder = "(XX) XXXXX-XXXX"
                     $0.tag = "numero"
+                    }.onChange {
+                        $0.cell.textField.text =  self.formatAsPhoneNumber($0.cell.textField.text!)
                 }
                 
             }
             return row
         }
     
+    func formatAsPhoneNumber(_ textField: String) -> String {
+        
+//        let textField = PhoneNumberTextField()
+
+        return PartialFormatter().formatPartial(textField)
+    }
+    
     @IBAction func save(_ sender: Any) {
 
+        let valuesDictionary = form.values()
+        print(valuesDictionary)
+        
         let nome : TextRow? = form.rowBy(tag: "nome")
         let sobrenome : TextRow? = form.rowBy(tag: "sobrenome")
         let dataNascimento : DateRow? = form.rowBy(tag: "dataNascimento")
         
-        let telefones : SplitRow<PushRow<String>,PhoneRow>? = form.rowBy(tag: "telefones")
-        let ruaNumero : TextRow? = form.rowBy(tag: "ruaNumero")
-        let cidadeUf : TextRow? = form.rowBy(tag: "cidadeUf")
+        let telefones = (form.values()["telefones"]!! as! [Any]).compactMap { $0 }
+        let ruaNumero = form.values()["ruaNumero"]!! as! SplitRowValue<String,String>
+        let cidadeUf = form.values()["cidadeUf"]!! as! SplitRowValue<String,String>
         let pais : TextRow? = form.rowBy(tag: "pais")
         
-        let redeSociais : SplitRow<PushRow<String>,TextRow>? = form.rowBy(tag: "redeSociais")
+        let redeSociais  = (form.values()["redes"]!! as! [Any]).compactMap { $0 }
         
-        do{
-            try owner?.agenda.insertPessoa((nome?.value)!,(sobrenome?.value)!, dataNascimento!.value!)
-        }catch{
-            print("\(error)")
+        owner?.agenda.insertPessoa((nome?.value)!,(sobrenome?.value)!, dataNascimento!.value!)
+        
+        for fone in telefones{
+            
+            let fone = fone as! SplitRowValue<String,String>
+            if fone.right == nil{continue}
+            let tipo = fone.left
+            let numero = fone.right
+            
+            owner?.agenda.insertTelefone((nome?.value)!,(sobrenome?.value)!, (numero)!, 55, 41, (tipo)!)
         }
         
+        for rede in redeSociais{
+            let rede = rede as! SplitRowValue<String,String>
+            if rede.right == nil{continue}
+            let tipo = rede.left
+            let URL = rede.right
+            
+            owner?.agenda.insertRedesSociais((nome?.value)!,(sobrenome?.value)!, (URL)! , tipo: (tipo)!)
+            
+        }
+    
+        
+        if (ruaNumero.left != nil) && (pais != nil ) && (cidadeUf.left != nil) {
+            owner?.agenda.insertEndereco((nome?.value)! ,(sobrenome?.value)! ,ruaNumero.left ?? "" , Int16(ruaNumero.right!)!,
+                                                 "bairro", cidadeUf.left!, cidadeUf.right!, (pais?.value)!)
+        }
     }
-    
-    
 }
+

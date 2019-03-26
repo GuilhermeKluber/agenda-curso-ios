@@ -2,6 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18D109" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Enderecos" representedClassName="Enderecos" syncable="YES" codeGenerationType="class">
         <attribute name="bairro" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cidade" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="numero" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="pais" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rua" optional="YES" attributeType="String" syncable="YES"/>
@@ -21,7 +22,7 @@
         <attribute name="sobrenome" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="endereco" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Enderecos" inverseName="pessoa" inverseEntity="Enderecos" syncable="YES"/>
         <relationship name="fones" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Fones" inverseName="pessoa" inverseEntity="Fones" syncable="YES"/>
-        <relationship name="redessociais" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RedesSociais" inverseName="pessoa" inverseEntity="RedesSociais" syncable="YES"/>
+        <relationship name="redessociais" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RedesSociais" inverseName="pessoa" inverseEntity="RedesSociais" syncable="YES"/>
     </entity>
     <entity name="RedesSociais" representedClassName="RedesSociais" syncable="YES" codeGenerationType="class">
         <attribute name="rede" optional="YES" attributeType="String" syncable="YES"/>
@@ -29,7 +30,7 @@
         <relationship name="pessoa" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pessoa" inverseName="redessociais" inverseEntity="Pessoa" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Enderecos" positionX="-18" positionY="54" width="128" height="135"/>
+        <element name="Enderecos" positionX="-18" positionY="54" width="128" height="150"/>
         <element name="Fones" positionX="9" positionY="63" width="128" height="120"/>
         <element name="Pessoa" positionX="-45" positionY="0" width="128" height="135"/>
         <element name="RedesSociais" positionX="-18" positionY="72" width="128" height="90"/>

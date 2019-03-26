@@ -12,15 +12,11 @@ class AgendaTableViewController: UITableViewController {
 
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var agenda : Contatos = Contatos()
+//    let alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+    var unique : [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     override func viewWillAppear(_ animated: Bool) {
         
@@ -29,9 +25,20 @@ class AgendaTableViewController: UITableViewController {
     }
     // MARK: - Table view data source
 
+
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
+        var char : [String] = []
+        for pessoa in agenda.contatos{
+            char.append(String((pessoa.nome)!.prefix(1)))
+        }
+        self.unique = Array(Set(char))
+        return self.unique.count
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        return self.unique[section]
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -41,10 +48,11 @@ class AgendaTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "contatos", for: indexPath)
-
+        
         cell.textLabel?.text = agenda.contatos[indexPath.row].nome
-
+        
         return cell
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

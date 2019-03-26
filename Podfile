@@ -14,4 +14,8 @@ use_frameworks!
 
 pod 'SplitRow'
 
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+pod 'PhoneNumberKit', '~> 2.6'
+
 end

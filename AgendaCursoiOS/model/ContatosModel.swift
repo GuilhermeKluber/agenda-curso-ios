@@ -78,7 +78,73 @@ class Contatos {
         }catch{
             print("Erro: \(error)")
         }
+    }
+    
+    func insertRedesSociais(_ nome : String, _ sobrenome : String, _ URL : String, tipo : String) {
         
+        var pessoas : [Pessoa] = []
+        var contato : Pessoa = Pessoa(context: context)
+        //Read
+        let requisicao : NSFetchRequest<Pessoa> = Pessoa.fetchRequest()
+        
+        requisicao.predicate = NSPredicate(format: "nome == '\(nome)' && sobrenome == '\(sobrenome)'")
+        do{
+            pessoas = try context.fetch(requisicao)
+            contato =  pessoas[0]
+        }catch{
+            print("erro \(error)")
+        }
+        
+        let rede : RedesSociais = RedesSociais(context: context)
+        
+        rede.rede = tipo
+        rede.url = URL
+
+        contato.addToRedessociais(rede)
+        
+        do {
+            try context.save()
+            
+        }catch{
+            print("Erro: \(error)")
+        }
+        print(contato)
+    }
+    
+    func insertEndereco(_ nome : String, _ sobrenome : String, _ rua : String, _ numero : Int16,
+                        _ bairro : String, _ cidade : String, _ estado : String, _ pais : String) {
+        
+        var pessoas : [Pessoa] = []
+        var contato : Pessoa = Pessoa(context: context)
+        //Read
+        let requisicao : NSFetchRequest<Pessoa> = Pessoa.fetchRequest()
+        
+        requisicao.predicate = NSPredicate(format: "nome == '\(nome)' && sobrenome == '\(sobrenome)'")
+        do{
+            pessoas = try context.fetch(requisicao)
+            contato =  pessoas[0]
+        }catch{
+            print("erro \(error)")
+        }
+        
+        let Endereco : Enderecos = Enderecos(context: context)
+        
+        Endereco.numero = numero
+        Endereco.rua = rua
+        Endereco.bairro = bairro
+        Endereco.cidade = cidade
+        Endereco.uf = cidade
+        Endereco.pais = pais
+        
+        contato.endereco = Endereco
+        
+        do {
+            try context.save()
+            
+        }catch{
+            print("Erro: \(error)")
+        }
+        print(contato)
     }
     
     func remove() {
