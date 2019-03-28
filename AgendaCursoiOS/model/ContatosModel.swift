@@ -168,21 +168,21 @@ class Contatos {
             print("erro \(error)")
             self.contatos = []
         }
-        print(contatos)
+        print(contatos[contatos.count-1].nome, (contatos[contatos.count-1].redessociais?.anyObject() as! RedesSociais).rede)
     }
     
-    func find(_ data : String, _ type : String) -> [Pessoa] {
-        var pessoas : [Pessoa] = []
+    func find(_ nome : String, _ sobrenome : String) -> Pessoa {
+        var pessoa : Pessoa
         //Read
         let requisicao : NSFetchRequest<Pessoa> = Pessoa.fetchRequest()
 
-        requisicao.predicate = NSPredicate(format: "nome LIKE '*{\(data)}*'")
+        requisicao.predicate = NSPredicate(format: "nome == '\(nome)' && sobrenome == '\(sobrenome)'")
         do{
-            pessoas = try context.fetch(requisicao)
-            return pessoas
+            pessoa = try context.fetch(requisicao)[0]
+            return pessoa
         }catch{
             print("erro \(error)")
-            return []
+            return Pessoa()
         }
     }
 }

@@ -48,18 +48,26 @@ class AgendaTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "contatos", for: indexPath)
-        
-        cell.textLabel?.text = agenda.contatos[indexPath.row].nome
-        
+        cell.textLabel?.text = " \(agenda.contatos[indexPath.row].nome!) \(agenda.contatos[indexPath.row].sobrenome!)"
         return cell
 
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let next = segue.destination as! CadastroViewController
+        
         if segue.identifier == "addContato"{
             next.owner = self
+//
             
+        }else if segue.identifier == "editContato"{
+            next.owner = self
+            let index = tableView.indexPathForSelectedRow
+            let currentCell = tableView.cellForRow(at: index!)
+            let name = agenda.contatos[(index?.row)!].nome!
+            let sobrenome = agenda.contatos[(index?.row)!].sobrenome!
+            let pessoa = self.agenda.find(String(name),String(sobrenome))
+            next.fillContatoFields(pessoa)
         }
     }
 

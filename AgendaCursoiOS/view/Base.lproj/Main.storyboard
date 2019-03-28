@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -26,6 +25,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="yCx-hR-8pu" kind="show" identifier="editContato" id="cqd-rz-DAr"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -49,69 +51,6 @@
         <scene sceneID="Kvd-dq-cHQ">
             <objects>
                 <viewController id="yCx-hR-8pu" customClass="CadastroViewController" customModule="AgendaCursoiOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="YSY-If-QLg" customClass="Agen">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hoX-sl-mhU">
-                                <rect key="frame" x="0.0" y="64" width="375" height="150"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="9rC-NA-hXz">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="100" id="UOj-1b-BIg"/>
-                                        </constraints>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user.png" translatesAutoresizingMaskIntoConstraints="NO" id="c4d-EU-w5f">
-                                        <rect key="frame" x="137.5" y="50" width="100" height="100"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="100" id="Nqf-mh-CmG"/>
-                                            <constraint firstAttribute="width" constant="100" id="ush-o9-OB6"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="9rC-NA-hXz" firstAttribute="leading" secondItem="hoX-sl-mhU" secondAttribute="leading" id="Wef-xM-AUJ"/>
-                                    <constraint firstItem="c4d-EU-w5f" firstAttribute="centerX" secondItem="hoX-sl-mhU" secondAttribute="centerX" id="biI-yZ-unt"/>
-                                    <constraint firstItem="9rC-NA-hXz" firstAttribute="top" secondItem="hoX-sl-mhU" secondAttribute="top" id="dch-EC-QGt"/>
-                                    <constraint firstAttribute="trailing" secondItem="9rC-NA-hXz" secondAttribute="trailing" id="jZB-e4-I63"/>
-                                    <constraint firstItem="c4d-EU-w5f" firstAttribute="top" secondItem="hoX-sl-mhU" secondAttribute="top" constant="50" id="nm1-le-Nq3"/>
-                                    <constraint firstAttribute="height" constant="150" id="yCc-rf-zXa"/>
-                                </constraints>
-                            </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hOF-p3-scV">
-                                <rect key="frame" x="0.0" y="164" width="375" height="503"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Wg-YX-btf">
-                                        <rect key="frame" x="25" y="85" width="325" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="9Wg-YX-btf" secondAttribute="trailing" constant="25" id="1UL-88-avM"/>
-                                    <constraint firstItem="9Wg-YX-btf" firstAttribute="top" secondItem="hOF-p3-scV" secondAttribute="top" constant="85" id="7aP-Ln-7IL"/>
-                                    <constraint firstItem="9Wg-YX-btf" firstAttribute="leading" secondItem="hOF-p3-scV" secondAttribute="leading" constant="25" id="7oY-Wl-ze6"/>
-                                    <constraint firstItem="9Wg-YX-btf" firstAttribute="centerX" secondItem="hOF-p3-scV" secondAttribute="centerX" id="M9N-97-OJY"/>
-                                </constraints>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="hoX-sl-mhU" firstAttribute="top" secondItem="dMd-T8-ZvF" secondAttribute="top" id="57b-wc-6bi"/>
-                            <constraint firstItem="hOF-p3-scV" firstAttribute="leading" secondItem="dMd-T8-ZvF" secondAttribute="leading" id="6mq-YM-Rry"/>
-                            <constraint firstItem="hOF-p3-scV" firstAttribute="trailing" secondItem="dMd-T8-ZvF" secondAttribute="trailing" id="Nu0-FE-y2g"/>
-                            <constraint firstItem="hoX-sl-mhU" firstAttribute="trailing" secondItem="dMd-T8-ZvF" secondAttribute="trailing" id="PCq-bt-iQX"/>
-                            <constraint firstItem="hoX-sl-mhU" firstAttribute="leading" secondItem="dMd-T8-ZvF" secondAttribute="leading" id="RWP-fx-Bxf"/>
-                            <constraint firstItem="hOF-p3-scV" firstAttribute="bottom" secondItem="dMd-T8-ZvF" secondAttribute="bottom" id="UMR-ia-w0d"/>
-                            <constraint firstItem="hOF-p3-scV" firstAttribute="centerX" secondItem="YSY-If-QLg" secondAttribute="centerX" id="kfs-nG-oSM"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="dMd-T8-ZvF"/>
-                    </view>
                     <navigationItem key="navigationItem" title="Title" id="m2C-1e-n0W">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="pn8-gT-1CR">
                             <connections>
@@ -119,9 +58,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="userPhoto" destination="c4d-EU-w5f" id="d7E-sM-UGa"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="axK-N3-1ci" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -146,8 +82,7 @@
             <point key="canvasLocation" x="549.60000000000002" y="112.89355322338831"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="back.jpg" width="348" height="145"/>
-        <image name="user.png" width="512" height="512"/>
-    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="cqd-rz-DAr"/>
+    </inferredMetricsTieBreakers>
 </document>
